@@ -1,0 +1,1 @@
+(()=>{"use strict";var e;e=document.querySelector(".clubs-list>ul"),document.addEventListener("click",(function(l){var t;l.target.closest(".club-select")?"block"===(t=e).style.display?t.style.display="none":t.style.display="block":e.style.display="none"}))})();
