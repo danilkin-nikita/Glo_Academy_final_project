@@ -6,6 +6,7 @@ const smallScreenNavigation = () => {
         popupMenu = document.querySelector('.popup-menu');
 
   let fixedGift = document.querySelector('.fixed-gift');
+  fixedGift.style.display = 'none';
 
   document.addEventListener('click', event => {
     let target = event.target;
