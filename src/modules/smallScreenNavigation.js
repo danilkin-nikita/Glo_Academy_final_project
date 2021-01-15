@@ -6,7 +6,9 @@ const smallScreenNavigation = () => {
         popupMenu = document.querySelector('.popup-menu');
 
   let fixedGift = document.querySelector('.fixed-gift');
-  fixedGift.style.display = 'none';
+  if (fixedGift) {
+    fixedGift.style.display = 'none';
+  }
 
   document.addEventListener('click', event => {
     let target = event.target;
@@ -27,18 +29,20 @@ const smallScreenNavigation = () => {
       topMenu.style.position = 'static';
     }
 
-    if (pageYOffset >= 3600) {
-      fixedGift.style.display = 'inline';
-    } else if (pageYOffset < 3600) {
-      fixedGift.style.display = 'none';
-    }
+    if(fixedGift) {
+      if (pageYOffset >= 3600) {
+        fixedGift.style.display = 'inline';
+      } else if (pageYOffset < 3600) {
+        fixedGift.style.display = 'none';
+      }
 
-    if (window.innerWidth < 768) {
-      fixedGift.querySelector('img').style.maxWidth = '70%';
-      fixedGift.style.right = '55px';
-    } else {
-      fixedGift.querySelector('img').style.maxWidth = '100%';
-      fixedGift.style.right = '20px';
+      if (window.innerWidth < 768) {
+        fixedGift.querySelector('img').style.maxWidth = '70%';
+        fixedGift.style.right = '55px';
+      } else {
+        fixedGift.querySelector('img').style.maxWidth = '100%';
+        fixedGift.style.right = '20px';
+      }
     }
   });
 };
