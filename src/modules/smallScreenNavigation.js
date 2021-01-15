@@ -2,35 +2,44 @@
 
 //бургер меню (при экране меньше чем 768 px)
 const smallScreenNavigation = () => {
-  const burgerBtn = document.querySelector('.hidden-large'),
-        topMenu = document.querySelector('.top-menu'),
-        navMenu = document.querySelector('.hidden-small'),
+  const topMenu = document.querySelector('.top-menu'),
         popupMenu = document.querySelector('.popup-menu');
 
-  if (screen.width < 768) {
-    burgerBtn.style.display = 'block';
-    navMenu.style.display = 'none';
+  let fixedGift = document.querySelector('.fixed-gift');
 
-    document.addEventListener('click', event => {
-      let target = event.target;
+  document.addEventListener('click', event => {
+    let target = event.target;
 
-      if (target.closest('.hidden-large>img')) {
-        popupMenu.style.display = 'flex';
-      }
-      if (target.closest('.close-menu-btn>img') || target.closest('.scroll')) {
-        popupMenu.style.display = 'none';
-      }
-    });
+    if (target.closest('.hidden-large>img')) {
+      popupMenu.style.display = 'flex';
+    }
+    if (target.closest('.close-menu-btn>img') || target.closest('.scroll')) {
+      popupMenu.style.display = 'none';
+    }
+  });
 
-    document.addEventListener('scroll', () => {
+  document.addEventListener('scroll', () => {
+    
+    if (pageYOffset >= 200 && window.innerWidth < 768) {
+      topMenu.style.position = 'fixed';
+    } else if (pageYOffset < 200 || window.innerWidth >= 768) {
+      topMenu.style.position = 'static';
+    }
 
-      if (pageYOffset >= 200) {
-        topMenu.style.position = 'fixed';
-      } else {
-        topMenu.style.position = 'static';
-      }
-    });
-  }
+    if (pageYOffset >= 3600) {
+      fixedGift.style.display = 'inline';
+    } else if (pageYOffset < 3600) {
+      fixedGift.style.display = 'none';
+    }
+
+    if (window.innerWidth < 768) {
+      fixedGift.querySelector('img').style.maxWidth = '70%';
+      fixedGift.style.right = '55px';
+    } else {
+      fixedGift.querySelector('img').style.maxWidth = '100%';
+      fixedGift.style.right = '20px';
+    }
+  });
 };
 
 export default smallScreenNavigation;

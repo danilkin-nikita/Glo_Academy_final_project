@@ -4,7 +4,7 @@ import clubChoice from './modules/clubChoice';
 import togglePopUp from './modules/modalWindows';
 import smallScreenNavigation from './modules/smallScreenNavigation';
 import arrowAppearance from './modules/navigation';
-
+import calc from './modules/calc';
 
 //выпадающее меню
 clubChoice();
@@ -17,3 +17,6 @@ smallScreenNavigation();
 
 //появление стрелки для прокрутки в начало сайта
 arrowAppearance();
+
+//калькулятор стоимости абонемента
+calc();
