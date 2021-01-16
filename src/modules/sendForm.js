@@ -70,7 +70,7 @@ const sendForm = () => {
       const formData = new FormData(target);
 
       target.querySelectorAll('input').forEach(elem => {
-        elem.style.border = 'none';
+        elem.style.border = '1px solid #b7b7b7';
       });
 
       target.reset();
