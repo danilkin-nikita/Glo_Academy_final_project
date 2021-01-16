@@ -30,7 +30,7 @@ const calc = () => {
 
     count();
 
-    if (promoCode.value === 'ТЕЛО2021') {
+    if (promoCode && promoCode.value === 'ТЕЛО2021') {
       total.innerHTML = Math.round(parseInt((total.innerHTML * 0.7), 10) /100) * 100;
     }
   });

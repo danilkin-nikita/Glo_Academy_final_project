@@ -5,6 +5,7 @@ import togglePopUp from './modules/modalWindows';
 import smallScreenNavigation from './modules/smallScreenNavigation';
 import arrowAppearance from './modules/navigation';
 import calc from './modules/calc';
+import sendForm from './modules/sendForm';
 
 //выпадающее меню
 clubChoice();
@@ -20,3 +21,6 @@ arrowAppearance();
 
 //калькулятор стоимости абонемента
 calc();
+
+//отправка и валидация форм
+sendForm();

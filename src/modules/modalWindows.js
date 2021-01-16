@@ -11,26 +11,34 @@ const togglePopUp = () => {
   const openGift = document.querySelector('.fixed-gift>img'),
         gift = document.getElementById('gift');
 
+  const statusModal = document.getElementById('thanks'); 
+
   document.addEventListener('click', event => {
     let target = event.target;
 
-    const toggle = (btn, form) => {
+    const toggle = (btn, modal) => {
       if (target === btn) {
-        form.style.display = 'block';
+        modal.style.display = 'block';
       }
       
         if (target.classList.contains('close_icon') || target.classList.contains('overlay') || target.classList.contains('close-btn')) {
-          form.style.display = 'none';
+          modal.style.display = 'none';
       }
     };
 
     toggle(openVisitForm, freeVisitForm);
     toggle(openCalbackForm, callbackForm);
-    toggle(openGift, gift);
+    if (openGift) {
+      toggle(openGift, gift);
+    }
 
     if (target === openGift) {
       openGift.style.display = 'none';
     }
+
+      if (target.classList.contains('close_icon') || target.classList.contains('overlay') || target.classList.contains('close-btn')) {
+          statusModal.style.display = 'none';
+      }
   });
 };
 
