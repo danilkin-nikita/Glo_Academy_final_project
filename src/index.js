@@ -6,6 +6,8 @@ import smallScreenNavigation from './modules/smallScreenNavigation';
 import arrowAppearance from './modules/navigation';
 import calc from './modules/calc';
 import sendForm from './modules/sendForm';
+import gallerySlider from './modules/gallerySlider';
+import mainSlider from './modules/mainSlider';
 
 //выпадающее меню
 clubChoice();
@@ -24,3 +26,9 @@ calc();
 
 //отправка и валидация форм
 sendForm();
+
+//слайдер галереи
+gallerySlider();
+
+//главный слайдер
+mainSlider();
