@@ -41,14 +41,18 @@ const sendForm = () => {
         valid = false;
       }
       if (dataProcessing && dataProcessing.checked === false) {
-        dataProcessingText.style.color = 'red';
+        dataProcessingText.classList.add('error');
         setTimeout(() => {
-          dataProcessingText.style.color = 'white';
+          dataProcessingText.classList.remove('error');
         }, 1500);
         valid = false;
       }
       if (valid === false) {
         return;
+      }
+
+      if (target.matches('#form1') || target.matches('#form2')) {
+        target.closest('.popup').style.display = 'none';
       }
 
       statusModal.style.display = 'block';
@@ -94,6 +98,11 @@ const sendForm = () => {
                               </div>
                           </div>
       `;
+
+      setTimeout(() => {
+        statusModal.style.display = 'none';
+      }, 5000); 
+
         })
         .catch(error => {
           statusModal.innerHTML = `
@@ -110,8 +119,14 @@ const sendForm = () => {
                               </div>
                           </div>
       `;
-          console.error(error);
-      }); 
+
+      setTimeout(() => {
+        statusModal.style.display = 'none';
+      }, 5000); 
+
+      console.error(error);
+
+      });
     }
   });
 
