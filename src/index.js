@@ -8,6 +8,7 @@ import calc from './modules/calc';
 import sendForm from './modules/sendForm';
 import gallerySlider from './modules/gallerySlider';
 import mainSlider from './modules/mainSlider';
+import servicesSlider from './modules/servicesSlider';
 
 //выпадающее меню
 clubChoice();
@@ -32,3 +33,6 @@ gallerySlider();
 
 //главный слайдер
 mainSlider();
+
+// слайдер карусель услуг
+servicesSlider();
