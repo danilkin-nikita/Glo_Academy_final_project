@@ -6,7 +6,7 @@ const servicesSlider = () => {
         slide = slider.querySelectorAll('.slide'),
         sliderBtn = slider.querySelectorAll('.slider-arrow');
 
-  let position = 0,
+  let position = 1,
       slidesToShow = 5;
 
   const checkWindow = () => {
@@ -14,20 +14,12 @@ const servicesSlider = () => {
 
     if (window.innerWidth >= 1200) {
       slidesToShow = 5;
-      sliderBtn.forEach(item => {
-        item.style.display = 'none';
-      });
-    } else {
-      sliderBtn.forEach(item => {
-        item.style.display = 'block';
-      })
-      if (window.innerWidth < 1200 && window.innerWidth >= 767) {
-          slidesToShow = 4;
-        } else if (window.innerWidth < 767 && window.innerWidth >= 479) {
-          slidesToShow = 2;
-        } else if (window.innerWidth < 479) {
-          slidesToShow = 1;
-        }
+    } else if (window.innerWidth < 1200 && window.innerWidth >= 767) {
+      slidesToShow = 4;
+    } else if (window.innerWidth < 767 && window.innerWidth >= 479) {
+      slidesToShow = 2;
+    } else if (window.innerWidth < 479) {
+      slidesToShow = 1;
     }
     
     for (let i = 0; i < slide.length; i++) {
@@ -59,13 +51,13 @@ const servicesSlider = () => {
 
   const checkBtn = () => {
     sliderBtn.forEach(item => {
-      item.style.display = 'block';
+      item.style.backgroundColor = '#f4c71b';
     });
     if (position === (slide.length - slidesToShow)) {
-        sliderBtn[1].style.display = 'none';
+        sliderBtn[1].style.backgroundColor = '#cabf97';
     }
     if (position === 0) {
-      sliderBtn[0].style.display = 'none';
+      sliderBtn[0].style.backgroundColor = '#cabf97';
     }
   };
 
