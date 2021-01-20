@@ -3,9 +3,7 @@
 //отправка и валидация форм
 const sendForm = () => {
 
-  const statusModal = document.getElementById('thanks'),
-        dataProcessing = document.querySelector('.personal-data>input[type="checkbox"]'),
-        submitBtn = document.querySelector('button[type="submit"]');
+  const statusModal = document.getElementById('thanks');
 
   const inputError = elem => {
     elem.style.border = '3px solid red';
@@ -21,7 +19,10 @@ const sendForm = () => {
     const inputName = target.querySelector('input[name="name"]'),
           inputPhone = target.querySelector('input[name="phone"]'),
           dataProcessing = target.querySelector('.personal-data>input[type="checkbox"]'),
-          dataProcessingText = target.querySelector('.personal-data>label')
+          dataProcessingText = target.querySelector('.personal-data>label'),
+          clubChoice = target.querySelectorAll('.club>input'),
+          clubSelect = target.querySelector('.club>input:checked'),
+          priceTotal = target.querySelector('#price-total');
 
     const validName = /^[а-яА-Я]{2,}$/,
           validPhone = /^\+?[78]([-() ]*\d){10}$|^([-() ]*\d){7}$/;
@@ -38,6 +39,16 @@ const sendForm = () => {
       }
       if (!inputPhone.value.match(validPhone)) {
         inputError(inputPhone);
+        valid = false;
+      }
+      if (clubChoice.length > 0 && !clubSelect) {
+        let textError = document.createElement('p');
+        textError.innerHTML = 'Выберите клуб!';
+        textError.classList.add('error');
+        target.appendChild(textError);
+        setTimeout(() => {
+          textError.style.display = 'none';
+        }, 1500);
         valid = false;
       }
       if (dataProcessing && dataProcessing.checked === false) {
@@ -78,6 +89,9 @@ const sendForm = () => {
       });
 
       target.reset();
+      if (priceTotal) {
+        priceTotal.innerHTML = 1990;
+      }
 
       postData(formData)
         .then(response => {
